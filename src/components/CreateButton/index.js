@@ -1,7 +1,6 @@
-//import react from "react";
 import './CreateButton.css';
 
-function CreateButtom(props){
+function CreateButton(props){
 
     const onClickButton = () => {
         props.setOpenModal(prevState => !prevState);
@@ -17,4 +16,4 @@ function CreateButtom(props){
     );
 }
 
-export { CreateButtom};
+export { CreateButton};

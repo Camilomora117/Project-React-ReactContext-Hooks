@@ -3,17 +3,22 @@ import {TodoCounter} from '../TodoCounter';
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
 import {TodoItem} from '../TodoItem';
-import { CreateButtom } from "../CreateButton";
+import { CreateButton } from "../CreateButton";
 import { TodoContext } from "../TodoContext";
-import { Modal } from "../modal";
+import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
+
+/* Imports Interfaces*/
+import { TodosError } from "../TodosError";
+import { TodosEmpty } from "../TodosEmpty";
+import { TodosLoading } from "../TodosLoading";
 
 function AppUI() {
 
     const {
       error, 
       loading, 
-      searchTodos, 
+      searchedTodos, 
       completeTodo, 
       deleteTodo,
       openModal,
@@ -28,13 +33,13 @@ function AppUI() {
         <TodoSearch /> 
 
         <TodoList>
-            {error && <p>Hubo un error!</p>}
-            {loading && <p>Cargando !</p>}
-            {(!loading && !searchTodos.length) && <p>Crear tu primer Todo!</p>}
+            {error && <TodosError error={'Hubo un error'}/>}
+            {loading && <TodosLoading /> }
+            {(!loading && !searchedTodos.length) && <TodosEmpty />}
 
-            {searchTodos.map((todo, index) => (
+            {searchedTodos.map(todo => (
               <TodoItem 
-              key={index} 
+              key={todo.text} 
               text={todo.text} 
               completed={todo.completed}
               onComplete={() => completeTodo(todo.text)}
@@ -49,7 +54,7 @@ function AppUI() {
           </Modal> 
         )}
    
-        <CreateButtom 
+        <CreateButton 
         setOpenModal={setOpenModal}
         />
     </React.Fragment>

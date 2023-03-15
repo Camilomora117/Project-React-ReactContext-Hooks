@@ -67,5 +67,6 @@ form {
   }
   
   .TodoForm-button--cancel {
-    background: transparent;
+    background: #fe0331;
+    box-shadow: 0px 5px 25px rgba(235, 25, 91, 0.4);
   }

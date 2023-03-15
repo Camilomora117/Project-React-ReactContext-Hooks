@@ -28,13 +28,12 @@ function useLocalStorage(itemName, intialValue) {
           setError(error);
         }
   
-      }, 1000);
+      }, 2000);
     }, []);
   
     //Actualizar Hook y LocalStorage
     function saveItem(newItem) {
       try {
-        console.log("llegooo");
         const stringfiedItem = JSON.stringify(newItem);
         localStorage.setItem(itemName, stringfiedItem);
         setItem(newItem);

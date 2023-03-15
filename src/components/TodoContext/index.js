@@ -6,9 +6,9 @@ const TodoContext = React.createContext();
 //Proviver: Envolver la APP
 function TodoProvider(props) {
 
-    const {
+      const {
         item: todos,
-        setItem: saveTodos,
+        saveItem: saveTodos,
         loading,
         error,
       } = useLocalStorage('TODOS_V1', []);
@@ -17,20 +17,21 @@ function TodoProvider(props) {
     
       const [searchValue, setSearchValue] = React.useState('');
       
-      const completedTareas = todos.filter(todo => !!todo.completed).length;
-      const totalTareas = todos.length;
+      const completedTodos = todos.filter(todo => !!todo.completed).length;
+      const totalTodos = todos.length;
     
-      let searchTodos = [];
+
+      let searchedTodos = [];
       if (!searchValue.length >= 1) {
-        searchTodos = todos;
+        searchedTodos = todos;
       } else {
-        searchTodos = todos.filter(todo => {
+        searchedTodos = todos.filter(todo => {
           const todoText = todo.text.toLowerCase();
           const searchText = searchValue.toLowerCase();
           return todoText.includes(searchText);
-        })
+        });
       }
-    
+
       const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
         const newTodos = [... todos];
@@ -56,16 +57,16 @@ function TodoProvider(props) {
 
     return (
         <TodoContext.Provider value={{
-            error,
             loading,
-            totalTareas,
-            completedTareas,
+            error,
+            totalTodos,
+            completedTodos,
             searchValue,
             setSearchValue,
-            searchTodos,
+            searchedTodos,
+            addTodo,
             completeTodo,
             deleteTodo,
-            addTodo,
             openModal,
             setOpenModal,
         }}>

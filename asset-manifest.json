@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Project-React-ReactContext-Hooks/static/css/main.6a789080.css",
+    "main.js": "/Project-React-ReactContext-Hooks/static/js/main.23258163.js",
+    "index.html": "/Project-React-ReactContext-Hooks/index.html",
+    "static/media/delete.svg": "/Project-React-ReactContext-Hooks/static/media/delete.331149da222541bc87c25bf8d775a070.svg",
+    "static/media/check.svg": "/Project-React-ReactContext-Hooks/static/media/check.fa4fb594b16385306a04b9c87c0feb55.svg",
+    "main.6a789080.css.map": "/Project-React-ReactContext-Hooks/static/css/main.6a789080.css.map",
+    "main.23258163.js.map": "/Project-React-ReactContext-Hooks/static/js/main.23258163.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a789080.css",
+    "static/js/main.23258163.js"
+  ]
+}
